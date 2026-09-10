@@ -1,6 +1,6 @@
 # DevMate
 
-A VS Code extension that explains errors and stack traces in plain English using Claude.
+A VS Code extension that explains errors and stack traces in plain English using AI.
 
 ## What it does (v0.0.1)
 
@@ -10,12 +10,12 @@ plus a suggested fix in a side panel.
 
 ## Setup
 
-1. Get an Anthropic API key from https://console.anthropic.com
+1. Get a Groq openai/gpt-oss-120b API key from https://console.groq.com
 2. Open this folder in VS Code
 3. Press `F5` to launch an Extension Development Host (a second VS Code
    window with the extension loaded)
 4. In that new window, open Settings, search "DevMate", and paste your
-   API key into `devmate.apiKey`
+   API key into `devmate.groqApiKey`
 5. Select some error text in any file, right-click, run the command
 
 ## Roadmap
