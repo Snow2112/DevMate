@@ -1,0 +1,46 @@
+{
+  "name": "devmate",
+  "displayName": "DevMate - AI Error Explainer",
+  "description": "Select an error or stack trace and get a plain-English explanation and fix suggestion.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": ["Other"],
+  "activationEvents": [],
+  "main": "./src/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "devmate.explainError",
+        "title": "DevMate: Explain Selected Error"
+      }
+    ],
+    "menus": {
+      "editor/context": [
+        {
+          "command": "devmate.explainError",
+          "when": "editorHasSelection",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "DevMate",
+      "properties": {
+        "devmate.groqApiKey": {
+          "type": "string",
+          "default": "",
+          "description": "Your free Groq API key (get one at console.groq.com/keys)"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "lint": "eslint ."
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.85.0",
+    "@types/node": "^20.0.0"
+  }
+}
