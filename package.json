@@ -2,18 +2,48 @@
   "name": "devmate",
   "displayName": "DevMate - AI Error Explainer",
   "description": "Select an error or stack trace and get a plain-English explanation and fix suggestion.",
-  "version": "0.0.1",
+  "version": "0.2.1",
   "engines": {
     "vscode": "^1.85.0"
   },
-  "categories": ["Other"],
+  "categories": [
+    "Other"
+  ],
   "activationEvents": [],
   "main": "./src/extension.js",
   "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "devmateContainer",
+          "title": "DevMate",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "devmateContainer": [
+        {
+          "type": "webview",
+          "id": "devmateChatView",
+          "name": "DevMate Chat",
+          "icon": "media/icon.svg"
+        }
+      ]
+    },
     "commands": [
       {
         "command": "devmate.explainError",
         "title": "DevMate: Explain Selected Error"
+      },
+      {
+        "command": "devmate.explainClipboard",
+        "title": "DevMate: Explain Error from Clipboard"
+      },
+      {
+        "command": "devmate.openChat",
+        "title": "DevMate: Open Chat",
+        "icon": "media/icon.svg"
       }
     ],
     "menus": {
@@ -23,8 +53,22 @@
           "when": "editorHasSelection",
           "group": "navigation"
         }
+      ],
+      "editor/title": [
+        {
+          "command": "devmate.openChat",
+          "group": "navigation",
+          "when": "editorIsOpen"
+        }
       ]
     },
+    "keybindings": [
+      {
+        "command": "devmate.explainClipboard",
+        "key": "ctrl+alt+e",
+        "mac": "cmd+alt+e"
+      }
+    ],
     "configuration": {
       "title": "DevMate",
       "properties": {
